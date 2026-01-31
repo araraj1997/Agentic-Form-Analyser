@@ -1,0 +1,58 @@
+# Intelligent Form Agent Configuration
+# Copy this file to config.yaml and modify as needed
+
+extraction:
+  # OCR language code (e.g., 'eng', 'deu', 'fra', 'spa')
+  ocr_language: "eng"
+  
+  # Minimum confidence threshold for field extraction (0.0-1.0)
+  confidence_threshold: 0.7
+  
+  # Whether to extract tables from documents
+  extract_tables: true
+  
+  # Whether to use OCR as fallback for PDFs
+  ocr_fallback: true
+
+qa:
+  # Sentence transformer model for semantic search
+  # Options: 'sentence-transformers/all-MiniLM-L6-v2' (fast)
+  #          'sentence-transformers/all-mpnet-base-v2' (better quality)
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  
+  # Maximum context length for answer generation
+  max_context_length: 512
+  
+  # Number of text chunks to retrieve for answering
+  top_k_retrieval: 5
+
+summarization:
+  # Maximum summary length in characters
+  max_length: 500
+  
+  # Minimum summary length in characters
+  min_length: 100
+  
+  # Summary style: 'bullet_points' or 'narrative'
+  style: "bullet_points"
+
+output:
+  # Default output format: 'json', 'csv', or 'markdown'
+  format: "json"
+  
+  # Whether to include confidence scores in output
+  include_confidence: true
+  
+  # Whether to mask sensitive data (SSN, etc.) in output
+  mask_sensitive: true
+
+# Advanced settings (optional)
+advanced:
+  # Enable GPU acceleration for embeddings (if available)
+  use_gpu: false
+  
+  # Cache processed documents in memory
+  cache_documents: true
+  
+  # Batch size for processing multiple documents
+  batch_size: 10
